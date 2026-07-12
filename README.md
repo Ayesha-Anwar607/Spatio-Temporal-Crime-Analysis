@@ -22,9 +22,7 @@ The project has been refactored into a clean, modular structure following enterp
 │   ├── spark_session.py         # Modular Spark session builder
 │   └── data_cleaning.py         # Standardized PySpark cleanup procedures
 ├── .gitignore                   # Project gitignore file
-├── Crime_Data_from_2020_to_Present.csv  # Lightweight local sample dataset (runs out of the box)
 ├── requirements.txt             # Project library dependencies
-└── spatio_temporal_crime_analysis.py    # Main pipeline runner script
 ```
 
 ### 🧩 Core Modules (`src/`)
@@ -35,7 +33,7 @@ The project has been refactored into a clean, modular structure following enterp
 
 ## 🗺️ Pipeline Roadmap & Sections
 
-The analysis script `spatio_temporal_crime_analysis.py` (and the corresponding notebook) is structured as a 7-stage data pipeline:
+The analysis script `spatio_temporal_crime_analysis.ipyb`  is structured as a 7-stage data pipeline:
 
 ```mermaid
 graph TD
