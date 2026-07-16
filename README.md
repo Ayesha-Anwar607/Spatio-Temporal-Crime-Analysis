@@ -1,64 +1,74 @@
-# 🚔 Spatio-Temporal Crime Analysis Pipeline
+# Spatio-Temporal Crime Analysis
 
-An end-to-end distributed data pipeline and analytical system for processing, cleaning, querying, and visualizing spatio-temporal crime patterns (using the Chicago Crime dataset). 
-
-This project is built using a hybrid approach leveraging **Pandas** and **Dask** for initial local data exploration, alongside **Apache Spark (PySpark)** and **Spark SQL** for heavy-duty distributed processing and analysis.
+This repository contains code and resources for performing a **Spatio-Temporal Crime Analysis**. The project focuses on uncovering geographic and temporal patterns in criminal activity (such as identifying hotspots, peak crime hours, and seasonal trends) to help understand, visualize, and potentially predict where and when crimes are most likely to occur.
 
 ---
 
-## 🏗️ Project Architecture
+## 📊 Dataset Information
 
-The project has been refactored into a clean, modular structure following enterprise data engineering best practices:
+The analysis is based on the Chicago Crime dataset:
 
-
-
-## 🗺️ Pipeline Roadmap & Sections
-
-The analysis script `spatio_temporal_crime_analysis.ipyb`  is structured as a 7-stage data pipeline:
-
-```mermaid
-graph TD
-    A[Section 1: Data Exploration Pandas/Dask] --> B[Section 2: Spark Init & Loading]
-    B --> C[Section 3: Spark Data Cleaning Pipeline]
-    C --> D[Section 4: Spark RDD Operations]
-    D --> E[Section 5: PySpark SQL & Temp Views]
-    E --> F[Section 6: Caching & Partitioning Performance]
-    F --> G[Section 7: Data Visualizations]
-```
-
-1. **Section 1: Data Exploration (Pandas & Dask)**: Explores data structures locally, calculates counts, and visualizes distribution using Pandas/Dask.
-2. **Section 2: PySpark Initialization & Loading**: Initializes the Apache Spark engine and reads the raw dataset into a distributed PySpark DataFrame.
-3. **Section 3: Standardized PySpark Data Cleaning**: Cleans datasets by removing coordinate features, calculating and filling missing values, and engineering temporal features (Year, Month, Hour, Day of Week).
-4. **Section 4: PySpark RDD Operations**: Performs functional RDD transformations and actions (map, filter, reduce, aggregateByKey, and set operations).
-5. **Section 5: PySpark SQL Queries & Spark SQL**: Utilizes Spark SQL views and Window specifications to query, rank, and aggregate crime patterns.
-6. **Section 6: Caching, Persistence & Partitioning**: Performs benchmarks on Spark caching levels (MEMORY_ONLY vs MEMORY_AND_DISK), partitioning performance, and broadcast operations.
-7. **Section 7: Data Visualizations**: Pulls aggregated analytical datasets into Pandas to plot Yearly trends, Crime Category bar charts, and Spatio-Temporal heatmaps.
+* **Source:** [Kaggle - Crimes 2001 to Present (Chicago)](https://www.kaggle.com/datasets/adelanseur/crimes-2001-to-present-chicago)
+* **Dataset Note:** The full Chicago Crime dataset is extremely large. For this project, **only a subsection (subset)** of the dataset was used to ensure efficient processing and faster execution.
 
 ---
 
-## 🚀 Setup & Installation
+## ⚙️ Environment and Requirements
 
-### 1. Prerequisites
-Ensure you have Python 3.10+ and Java (required by Apache Spark) installed on your local machine.
+This project is built and optimized to run on **Google Colab**.
 
-### 2. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+### Prerequisite Setup:
 
-### 3. Dataset Setup
-* **Out-of-the-Box Mode**: The project includes a lightweight sample dataset (`Crime_Data_from_2020_to_Present.csv`). If you do not have the full Kaggle dataset, the pipeline automatically detects this and falls back to running on the sample file.
-* **Full Mode**: Download the dataset from Kaggle:
-  [Chicago Crimes Dataset (2001-Present)](https://www.kaggle.com/datasets/adelanseur/crimes-2001-to-present-chicago).
-  Place the downloaded `Crimes_-_2001_to_Present.csv` file inside the `data/` folder in the root directory.
+To access and process the data in Google Colab, you should save your dataset subset on **Google Drive** and mount your drive in the notebook.
 
-### 4. Running the Pipeline
-To execute the complete pipeline locally:
-```bash
-python spatio_temporal_crime_analysis.py
-```
+### Key Libraries Used:
+
+* `pandas` (Data manipulation)
+* `numpy` (Numerical computing)
+* `matplotlib` & `seaborn` (Data visualization)
+* `folium` / `geopandas` (Spatial mapping and hotspot visualization)
 
 ---
 
-## 🧪 Automated CI Checks
-A GitHub Actions workflow is located at `.github/workflows/code_check.yml`. On every `push` and `pull_request` to the main branches, the workflow will setup the Python environment, install libraries, and run a full compiler syntax check (`python -m compileall .`) across the entire repository to ensure code quality is maintained.
+## 🚀 How to Run the Project
+
+Follow these steps to run the analysis yourself:
+
+### Step 1: Download the Dataset
+
+1. Go to the [Kaggle Chicago Crimes Dataset](https://www.kaggle.com/datasets/adelanseur/crimes-2001-to-present-chicago).
+2. Download the data.
+3. Extract or filter a **subsection** of the data (e.g., a specific year range like 2020–present, or a specific neighborhood/crime category) to match the scope of this analysis.
+
+### Step 2: Upload to Google Drive
+
+1. Create a folder in your Google Drive (e.g., `Colab Notebooks/Crime_Analysis/`).
+2. Upload your processed dataset subsection (CSV file) into this folder.
+
+### Step 3: Open in Google Colab
+
+1. Upload the Jupyter notebook (`.ipynb` file) from this repository to your Google Colab environment.
+2. Ensure you have mounted your Google Drive in Colab by running the following snippet:
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+
+```
+
+
+3. Update the data path in the notebook to point to the location where you uploaded your dataset on Google Drive:
+```python
+dataset_path = '/content/drive/MyDrive/Colab Notebooks/Crime_Analysis/your_dataset_subset.csv'
+
+```
+
+
+4. Run the notebook cells sequentially to execute the data preprocessing, temporal trend analysis, and spatial mapping!
+
+---
+
+## 📌 Project Highlights
+
+* **Temporal Analysis:** Visualizing how crime distribution changes over years, months, days of the week, and hours of the day.
+* **Spatial Mapping:** Generating geographic heatmaps of high-density crime regions (hotspots) using latitude and longitude coordinates.
+* **Preprocessing Pipeline:** Handling missing geospatial data, cleaning categories, and parsing timestamps for optimized analytical queries.
