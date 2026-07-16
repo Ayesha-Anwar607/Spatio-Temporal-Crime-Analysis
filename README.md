@@ -10,26 +10,7 @@ This project is built using a hybrid approach leveraging **Pandas** and **Dask**
 
 The project has been refactored into a clean, modular structure following enterprise data engineering best practices:
 
-```directory
-├── .github/
-│   └── workflows/
-│       └── code_check.yml       # Automated Python syntax check CI engine
-├── data/
-│   └── README.md                 # Instructions to download the raw Chicago Crime dataset
-├── notebooks/
-│   └── Spatio_Temporal_Crime_Analysis.ipynb  # Interactive analysis notebook
-├── src/
-│   ├── spark_session.py         # Modular Spark session builder
-│   └── data_cleaning.py         # Standardized PySpark cleanup procedures
-├── .gitignore                   # Project gitignore file
-├── requirements.txt             # Project library dependencies
-```
 
-### 🧩 Core Modules (`src/`)
-- **`src/spark_session.py`**: Encapsulates Spark Session initialization logic and configurations to keep session creation consistent across environments.
-- **`src/data_cleaning.py`**: Implements standardized cleanup procedures for PySpark DataFrames, including spatial column removal, missing values handling (using grouped mode calculations), and datetime feature extraction.
-
----
 
 ## 🗺️ Pipeline Roadmap & Sections
 
