@@ -24,11 +24,3 @@ venv/
 env/
 .env
 
-# Editor and IDE configurations
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.swp
