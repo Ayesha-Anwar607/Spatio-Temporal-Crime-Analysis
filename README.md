@@ -13,6 +13,12 @@ The analysis is based on the Chicago Crime dataset:
 
 ---
 
+## 🎓 Academic Context
+
+This repository represents my **final project for the Big Data Analytics course** during my degree. 
+
+The primary objective of this project was to apply big data processing, analytics, and visualization methodologies to a large-scale public dataset. Because the full Chicago Crimes dataset is massive, a subsection of the data was utilized to simulate and analyze complex, multi-dimensional spatio-temporal trends efficiently using cloud resources.
+
 ## ⚙️ Environment and Requirements
 
 This project is built and optimized to run on **Google Colab**.
