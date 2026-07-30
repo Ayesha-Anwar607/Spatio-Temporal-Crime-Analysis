@@ -4,7 +4,7 @@ This repository contains code and resources for performing a **Spatio-Temporal C
 
 ---
 
-## 📊 Dataset Information
+##  Dataset Information
 
 The analysis is based on the Chicago Crime dataset:
 
@@ -13,13 +13,13 @@ The analysis is based on the Chicago Crime dataset:
 
 ---
 
-## 🎓 Academic Context
+##  Academic Context
 
 This repository represents my **final project for the Big Data Analytics course** during my degree. 
 
 The primary objective of this project was to apply big data processing, analytics, and visualization methodologies to a large-scale public dataset. Because the full Chicago Crimes dataset is massive, a subsection of the data was utilized to simulate and analyze complex, multi-dimensional spatio-temporal trends efficiently using cloud resources.
 
-## ⚙️ Environment and Requirements
+## Environment and Requirements
 
 This project is built and optimized to run on **Google Colab**.
 
@@ -36,7 +36,7 @@ To access and process the data in Google Colab, you should save your dataset sub
 
 ---
 
-## 🚀 How to Run the Project
+## How to Run the Project
 
 Follow these steps to run the analysis yourself:
 
@@ -73,7 +73,7 @@ dataset_path = '/content/drive/MyDrive/Colab Notebooks/Crime_Analysis/your_datas
 
 ---
 
-## 📌 Project Highlights
+##  Project Highlights
 
 * **Temporal Analysis:** Visualizing how crime distribution changes over years, months, days of the week, and hours of the day.
 * **Spatial Mapping:** Generating geographic heatmaps of high-density crime regions (hotspots) using latitude and longitude coordinates.
